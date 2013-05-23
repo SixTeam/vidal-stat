@@ -4,4 +4,5 @@ package dao.framework
 object MongoProp {
     type MongoDbName = String
     type MongoCollectionName = String
+    type MongoDbPort = Int
 }
