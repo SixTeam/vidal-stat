@@ -10,4 +10,5 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Ping route
 PUT     /ping                       controllers.Application.ping
+GET     /ping                       controllers.Application.ping
 GET     /showPings                  controllers.Application.showPings

@@ -14,14 +14,14 @@ object Application extends Controller {
         Ok(views.html.index("Your new application is ready."))
     }
 
-    // PUT /ping?version=1&ccVersion=2&ccuid=112233&login=toto&pingType=ping&detectedOs=genou
+    // PUT /ping?version=1&ccVersion=2&ccuid=112233&login=toto&pingType=ping&detectedOs=genou-toutou
     def ping = Action { request =>
         val version = request.getQueryString("version")
         val ccVersion = request.getQueryString("ccVersion")
         val ccuid = request.getQueryString("ccuid")
         val login = request.getQueryString("login")
         val pingType = request.getQueryString("pingType")
-        val detectedOs = request.getQueryString("detectedOs")
+        val detectedOs = Option(request.rawQueryString.split("detectedOs")(1).split("=")(1)) //request.getQueryString("detectedOs")
 
         PingDao.savePing(Ping(version, ccVersion, ccuid, login, pingType, detectedOs))
 
